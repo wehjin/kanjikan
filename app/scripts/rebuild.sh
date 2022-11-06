@@ -1,6 +1,4 @@
 #!/bin/sh
-DEST=../docs
+DEST=..
 trunk build --release --filehash false
-rm -rf $DEST 
-mkdir $DEST 
 cp dist/* $DEST
