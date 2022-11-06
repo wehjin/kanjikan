@@ -180,6 +180,8 @@ dependencies = [
 name = "kanjikan-app"
 version = "0.1.0"
 dependencies = [
+ "gloo-utils",
+ "web-sys",
  "yew",
 ]
 
