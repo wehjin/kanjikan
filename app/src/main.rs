@@ -22,7 +22,7 @@ impl Component for Model {
 		let x = html! {
 			<a-scene>
 				<a-entity laser-controls="hand: left" raycaster="objects: .collidable; far: 10"></a-entity>
-				<a-entity laser-controls="hand: right" raycaster="objects: .collidable;"></a-entity>
+				<a-entity laser-controls="hand: right" raycaster="objects: .collidable; far: 100"></a-entity>
 				<a-sky src="https://cdn.glitch.global/78e9163c-0114-44ea-b6d2-3fb627944853/sky360.jpeg?v=1667676752316"></a-sky>
 				<a-plane class="collidable" position="0 0 -4" rotation="-90 0 0" width="8" height="4" color="#7BC8A4"></a-plane>
 				<a-sphere position="0 0 -2" radius="0.05" color="#333333"></a-sphere>
