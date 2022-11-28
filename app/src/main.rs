@@ -7,6 +7,8 @@ use crate::aframe::Xyz;
 
 enum Msg {}
 
+mod core;
+
 struct Model {}
 
 impl Component for Model {
