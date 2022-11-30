@@ -1,9 +1,9 @@
 use yew::{Context, Html, html};
 
-use crate::aframe::{Geometry, Primitive};
+use crate::aframe::{BoxGeometry, Geometry};
 
 pub struct AEntity {
-	pub geometry: Option<Geometry>,
+	pub geometry: Option<Box<dyn Geometry>>,
 }
 
 impl yew::Component for AEntity {
@@ -11,11 +11,11 @@ impl yew::Component for AEntity {
 	type Properties = ();
 
 	fn create(_ctx: &Context<Self>) -> Self {
-		AEntity { geometry: Some(Geometry { primitive: Primitive::Sphere }) }
+		AEntity { geometry: Some(Box::new(BoxGeometry::cube(0.4))) }
 	}
 
 	fn view(&self, _ctx: &Context<Self>) -> Html {
-		let geometry = self.geometry.map(|g| g.to_attr_string());
+		let geometry = self.geometry.as_ref().map(|g| g.attribute_string());
 		let html = html! {
 			<a-entity
 			geometry={geometry}

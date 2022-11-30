@@ -1,34 +1,25 @@
-
-
-
-#[derive(Copy, Clone, Debug)]
-pub struct Geometry {
-	pub primitive: Primitive,
-}
-
-impl Geometry {
-	pub fn to_attr_string(&self) -> String {
-		format!("primitive: {}", self.primitive.as_tag())
+pub trait Geometry {
+	fn primitive(&self) -> String;
+	fn attribute_string(&self) -> String {
+		format!("primitive: {}", self.primitive())
 	}
 }
 
-#[derive(Copy, Clone, Eq, PartialEq, Debug)]
-pub enum Primitive {
-	Box,
-	Sphere,
-	Dodecahedron,
-	Octahedron,
-	Tetrahedron,
+#[derive(Copy, Clone, PartialEq, Debug)]
+pub struct BoxGeometry {
+	pub width: f64,
+	pub height: f64,
+	pub depth: f64,
 }
 
-impl Primitive {
-	pub fn as_tag(&self) -> &'static str {
-		match self {
-			Primitive::Box => "box",
-			Primitive::Sphere => "sphere",
-			Primitive::Dodecahedron => "dodecahedron",
-			Primitive::Octahedron => "octahedron",
-			Primitive::Tetrahedron => "tetrahedron",
-		}
+impl Geometry for BoxGeometry {
+	fn primitive(&self) -> String {
+		"box".to_string()
+	}
+}
+
+impl BoxGeometry {
+	pub fn cube(size: f64) -> Self {
+		BoxGeometry { width: size, height: size, depth: size }
 	}
 }

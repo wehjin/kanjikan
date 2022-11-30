@@ -2,13 +2,13 @@ use yew::html::IntoPropValue;
 use yew::virtual_dom::AttrValue;
 
 pub use a_box::*;
-pub use a_entity::*;
+pub use entity::*;
 pub use a_scene::*;
 pub use geometry::*;
 
 mod a_scene;
 mod a_box;
-mod a_entity;
+mod entity;
 mod geometry;
 
 #[derive(Copy, Clone, PartialEq, Default)]
